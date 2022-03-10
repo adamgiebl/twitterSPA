@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS items;
+CREATE TABLE items(item_name TEXT NOT NULL, PRIMARY KEY(item_name));

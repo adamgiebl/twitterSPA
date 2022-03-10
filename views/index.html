@@ -1,0 +1,34 @@
+% import datetime
+% import timeago
+
+% now = datetime.datetime.now()
+% include("base", title="Posts")
+<div class="posts-wrapper">
+  % if get("user", False):  
+    % include("post-form")
+  % end
+  <section class="posts" id="posts-container">
+    % if not posts:
+      <article class="post post--empty">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path fill="currentColor" d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm6 9a3 3 0 0 0 6 0h5V5H4v7h5z"/></svg>
+        <span>There are no posts yet</span>
+      </article>
+    % else:
+      % for post in posts:
+      <article class="post">
+        <div class="post__header">
+          <div class="color" style="--color: {{ post['user']['hex_color'] }}"></div>
+          <h3 class="name">{{ post["user"]["name"] }}</h3>
+          <div class="time-created" title="{{ post['createdAt'] }}">
+            {{ timeago.format(int(post["createdAt"]), now) }}
+          </div>
+        </div>
+        <div class="post__content">{{ post["content"] }}</div>
+        <div class="post__footer"></div>
+      </article>
+      % end
+    % end
+  </section>
+  <script src="/index.js"></script>
+</div>
+% include("footer")
