@@ -1601,9 +1601,6 @@ body {
   color: white;
   border-radius: 10px;
 }
-.posts .post__footer {
-  display: none;
-}
 .posts .post__footer .buttons {
   display: flex;
   align-items: center;

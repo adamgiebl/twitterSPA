@@ -9,7 +9,4 @@ from globals import USERS, POSTS, authenticate
 def _():
     decoded = authenticate(request.get_cookie("jwt"))
     print(decoded)
-    if decoded:
-        return dict(posts=POSTS, user=decoded)
-    else:
-        return redirect('/login')
+    return dict(posts=POSTS, user=decoded)
