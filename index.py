@@ -1,5 +1,3 @@
-from email.mime import application
-from email.policy import default
 from bottle import run, get, view, static_file, error, post, request, redirect, default_app
 import random
 import uuid
