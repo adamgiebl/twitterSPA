@@ -51,5 +51,4 @@ try:
     application = default_app()
 except Exception as ex:
     print("Server running locally")
-
-run(port=3333, reloader=True, debug=True)
+    run(port=3333, reloader=True, debug=True)
