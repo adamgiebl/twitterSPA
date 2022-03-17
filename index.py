@@ -1,4 +1,6 @@
-from bottle import run, get, view, static_file, error, post, request, redirect
+from email.mime import application
+from email.policy import default
+from bottle import run, get, view, static_file, error, post, request, redirect, default_app
 import random
 import uuid
 import re
@@ -44,5 +46,12 @@ def _(error):
     print(error)
     return
 
+
+
+try:
+    import production
+    application = default_app()
+except Exception as ex:
+    print("Server running locally")
 
 run(port=3333, reloader=True, debug=True)
